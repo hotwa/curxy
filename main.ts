@@ -72,17 +72,17 @@ if (import.meta.main) {
 
   await Promise.all([
     Deno.serve({ port: flags.port, hostname: flags.hostname }, app.fetch),
-    startTunnel({ port: flags.port, hostname: flags.hostname })
-      .then(async (tunnel) => ensure(await tunnel?.getURL(), is.String))
-      .then((url) =>
-        console.log(
-          `Server running at: ${bold(terminalLink(url, url))}\n`,
-          green(
-            `enter ${bold(terminalLink(`${url}/v1`, `${url}/v1`))} into ${
-              italic(`Override OpenAl Base URL`)
-            } section in cursor settings`,
-          ),
-        )
-      ),
+    // startTunnel({ port: flags.port, hostname: flags.hostname })
+    //   .then(async (tunnel) => ensure(await tunnel?.getURL(), is.String))
+    //   .then((url) =>
+    //     console.log(
+    //       `Server running at: ${bold(terminalLink(url, url))}\n`,
+    //       green(
+    //         `enter ${bold(terminalLink(`${url}/v1`, `${url}/v1`))} into ${
+    //           italic(`Override OpenAl Base URL`)
+    //         } section in cursor settings`,
+    //       ),
+    //     )
+    //   ),
   ]);
 }
